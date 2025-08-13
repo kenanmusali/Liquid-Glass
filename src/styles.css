@@ -23,6 +23,14 @@ img {
   animation: move 10s infinite alternate ease-in-out;
 }
 
+.overlay > * {
+  transition: transform 0.3s ease;
+  transform-origin: top center;
+}
+._box_5qzjq_9:hover {
+  transform: scaleY(1.1);
+}
+
 @keyframes move {
   0% {
     transform: translateY(10vh);
