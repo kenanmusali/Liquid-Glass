@@ -11,10 +11,10 @@ export default function App() {
         {/* Glass elements in fixed position + animated translation for better visualization */}
         <GlassElement
           width={200}
-          height={200}
+          height={500}
           radius={25}
-          depth={10}
-          blur={0.4}
+          depth={8}
+          blur={0.8}
           chromaticAberration={0}
           debug={false}
         >
