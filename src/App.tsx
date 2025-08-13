@@ -18,42 +18,14 @@ export default function App() {
           chromaticAberration={0}
           debug={false}
         >
-          {/* ✅ your text/JSX inside */}
+          {/* your text/JSX inside */}
           <div className="tag">
             <div className="title">Moon</div>
             <div className="subtitle">Apollo 11</div>
           </div>
         </GlassElement>
 
-        <GlassElement
-          width={200}
-          height={200}
-          radius={100}
-          depth={10}
-          blur={4}
-          chromaticAberration={0}
-          debug={false}
-        >
-          <div className="tag">
-            <div className="title">Orbit</div>
-            <div className="subtitle">~27.3 days</div>
-          </div>
-        </GlassElement>
-
-        <GlassElement
-          width={200}
-          height={200}
-          radius={20}
-          depth={10}
-          blur={1}
-          chromaticAberration={1}
-          debug={false}
-        >
-          <div className="tag">
-            <div className="title">Sea of Tranquility</div>
-            <div className="subtitle">Mare Tranquillitatis</div>
-          </div>
-        </GlassElement>
+     
       </div>
 
       <img src="/images/AS11-40-5865HR.webp" alt="" />

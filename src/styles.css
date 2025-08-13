@@ -37,3 +37,11 @@ h1 {
   display: block;
   font-family: sans-serif;
 }
+
+.tag {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

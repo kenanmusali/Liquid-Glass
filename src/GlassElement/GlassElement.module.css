@@ -3,64 +3,46 @@ Apple's Liquid Glass seems to add a certain level of reflection in addition to r
 The following code is only an approximation of the appearance of the edge and opacity of an element.
 */
 .box {
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0 0 4px 0px white;
-  cursor: pointer;
-}
-
-
-.box {
   position: relative;
-  overflow: hidden;
-  border-radius: var(--glass-radius, 16px);
-  isolation: isolate;
-
-  /* base look so text is readable everywhere */
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    0 10px 30px rgba(0,0,0,0.25),
-    0 2px 8px rgba(0,0,0,0.2);
-
-  transition: transform 140ms ease, box-shadow 240ms ease;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.3);
 }
 
-.box:active {
-  transform: translateY(1px);
-}
-
-.content {
+.box::before {
+  content: "";
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-  pointer-events: none; /* change to auto if you need clicks */
-}
-
-/* faint highlight overlays (work in all browsers) */
-.chrome {
-  position: absolute;
-  inset: 0;
+  box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.7);
   pointer-events: none;
-  border-radius: inherit;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 40%),
-    radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,0.22), transparent 60%) top left / 60% 60% no-repeat,
-    radial-gradient(120% 80% at 100% 100%, rgba(255,255,255,0.12), transparent 60%) bottom right / 60% 60% no-repeat;
-  mix-blend-mode: screen;
+border-radius: 25px;
+  /* fade just the shadow */
+  mask-image: linear-gradient(to right, black, transparent 70%), 
+              linear-gradient(to bottom, black, transparent 70%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, black, transparent 70%), 
+                      linear-gradient(to bottom, black, transparent 70%);
+  -webkit-mask-composite: destination-in;
 }
 
-/* Firefox fallback (no backdrop support): strengthen base look a bit */
-.noBackdrop {
-  background: rgba(17, 23, 40, 0.35);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.15),
-    0 14px 38px rgba(0,0,0,0.35),
-    0 3px 12px rgba(0,0,0,0.25);
-  /* Note: this is NOT the live blur, just a decent fallback */
+
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+
+  /* bottom-right shadow */
+  box-shadow: inset -0.5px -0.5px 2px rgba(255, 255, 255, 0.7);
+
+  /* fade just the shadow (bottom + right sides) */
+  mask-image:
+    linear-gradient(to left, black, transparent 40%),
+    linear-gradient(to top, black, transparent 40%);
+  mask-composite: intersect;
+
+  -webkit-mask-image:
+    linear-gradient(to left, black, transparent 40%),
+    linear-gradient(to top, black, transparent 40%);
+  -webkit-mask-composite: destination-in;
 }
